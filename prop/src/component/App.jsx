@@ -1,14 +1,21 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Note from "./Note";
-
+import Card from "./Card";
+import contacts from "../contacts";
+function createCard(contact,i){
+  return <Card
+    id={i}
+    key={i}
+    name={contact.name}
+    img={contact.imgURL}
+    tel={contact.phone}
+    email={contact.email}
+  />
+}
 function App() {
   return (
     <div>
-      <Header />
-      <Note />
-      <Footer />
+      <h1 className="heading">My Contacts</h1>
+      {contacts.map(createCard)}
     </div>
   );
 }
